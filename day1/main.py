@@ -1,7 +1,8 @@
 """
 Get the list of number. The sum of two of them make the number 2020. Find the pair and multiply them together to find the answer.
 """
-from itertools import combinations, filterfalse
+from itertools import combinations
+from itertools import filterfalse
 
 import operator
 from functools import reduce
