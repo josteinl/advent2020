@@ -14,15 +14,12 @@ def part_one():
     routes = list(filter(lambda x: x, map(int, numbers[1].split(','))))
 
     time_to_next_departure = []
-    # time_to_wait_departure = []
     for route in routes:
         time_to_next_departure.append((arrive_at_bus_stop // route) * route + route)
-        # time_to_wait_departure.append(arrive_at_bus_stop % route)
 
     print('bus', routes)
     print('you arrive', arrive_at_bus_stop)
     print('next departure', time_to_next_departure)
-    # print('wait for next bus', time_to_wait_departure)
     index = time_to_next_departure.index(min(time_to_next_departure))
 
     bus_number = routes[index]
