@@ -7,18 +7,14 @@ import string
 def valid_field(field):
     field_name, data = field.split(':')
     print(f'{field_name}: {data}')
-    byr = iyr = eyr = None
     if field_name == 'byr':  # (Birth Year)
         # four digits; at least 1920 and at most 2002.
-        byr = int(data)
         return 1920 <= int(data) <= 2002
     elif field_name == 'iyr':  # (Issue Year)
         # four digits; at least 2010 and at most 2020
-        iyr = int(data)
         return 2010 <= int(data) <= 2020
     elif field_name == 'eyr':  # (Expiration Year)
         # four digits; at least 2020 and at most 2030.
-        eyr = int(data)
         return 2020 <= int(data) <= 2030
     elif field_name == 'hgt':  # (Height)
         # hgt (Height) - a number followed by either cm or in:
@@ -67,7 +63,7 @@ def yr_consistency(record):
         field_name, data = field.split(':')
         if field_name == 'byr':
             byr = int(data)
-        elif field_name =='iyr':
+        elif field_name == 'iyr':
             iyr = int(data)
         elif field_name == 'eyr':
             eyr = int(data)
@@ -116,8 +112,8 @@ def valid_passport(record):
     return True
 
 
-def main():
-    with open('data.txt', 'r') as f:
+def main(testfile):
+    with open(testfile, 'r') as f:
         data = f.read()
 
     records = data.split('\n\n')
@@ -137,5 +133,5 @@ def main():
 
 if __name__ == '__main__':
     # Part two:
-    valid_passports = main()
+    valid_passports = main('data.txt')
     print(f'valid passports {valid_passports}')
