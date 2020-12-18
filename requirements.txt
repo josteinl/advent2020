@@ -1,6 +1,6 @@
 # All
 pytest
-
+pytest-cov
 
 # Day 16 requirement
 ClusterShell
